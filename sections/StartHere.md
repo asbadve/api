@@ -4,10 +4,7 @@
 
 You should find enough information in this wiki to start playing with the audioboo API. This is quite definitely a work in progress - so check back frequently as more and more things are updated.
 
-We've got two google groups set-up which we'd advise you at least consider subscribing to.
-  * *[http://groups.google.com/group/audioboo-api-announce audioboo-api-announce]* - a low-volume, announcement-only list with details of important changes, planned service outages, etc.
-
- * *[http://groups.google.com/group/audioboo-api-discuss audioboo-api-discuss]* - the obligatory discussion channel for users of the audioboo API. We'll see how busy this gets.
+For bugs and problems with the API, use Github issues.  For general discussion and help, see the [Google group](http://groups.google.com/group/audioboo-api-discuss).
 
 You twitter users could also follow [http://twitter.com/audiobooapi @audiobooapi], if thats your thing.
 
@@ -22,9 +19,7 @@ You twitter users could also follow [http://twitter.com/audiobooapi @audiobooapi
  * *[Authentication Making authenticated API calls]* Make sure you can perform authenticated calls to audioboo, as this will be a requirement for most calls.
 
  * *[Support Support, help and feedback]* What to do if you have problems, need help or have feedback.
-
-## Not so required reading ##
- * *[TODO Things in the pipeline]* Ideas and prototypes we've got that, some day, we'd like to deploy...
+ 
 
 ## Reference Material ##
 
