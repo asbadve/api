@@ -1,4 +1,4 @@
-#summary API Pagination
+# API Pagination
 
 When fetching lists of entities from the api, the response is broken up into pages.  You can control the pagination with the following parameters : 
 

@@ -1,6 +1,6 @@
-#summary Table of contents sidebar
+# Table of contents sidebar
 
-= Important pages =
+# Important pages #
 
   [ReferenceIndex The reference list of API calls]
 ----

@@ -1,6 +1,6 @@
-#summary Overview of the Audioboo API
+# Overview of the Audioboo API
 
-= The Audioboo API =
+# The Audioboo API #
 
 You should find enough information in this wiki to start playing with the audioboo API. This is quite definitely a work in progress - so check back frequently as more and more things are updated.
 
@@ -13,9 +13,9 @@ You twitter users could also follow [http://twitter.com/audiobooapi @audiobooapi
 
 *IMPORTANT:* The API is currently a work in progress and has been released to gauge interest and potential use-cases. Whilst we'll endeavor to keep it as stable as possible and try to maintain backwards compatibility, it may be necessary for us to change published API calls. Rest assured we'll try and consult on the discussion list before making serious changes. 
 
-= Where to from now? =
+# Where to from now? #
  
-== Required Reading ==
+## Required Reading ##
 
  * *[RequestFormat Making API calls]* How to get data into and out of the server.
 
@@ -23,11 +23,10 @@ You twitter users could also follow [http://twitter.com/audiobooapi @audiobooapi
 
  * *[Support Support, help and feedback]* What to do if you have problems, need help or have feedback.
 
-== Not so required reading == 
-
+## Not so required reading ##
  * *[TODO Things in the pipeline]* Ideas and prototypes we've got that, some day, we'd like to deploy...
 
-== Reference Material ==
+## Reference Material ##
 
 *[ReferenceIndex The API reference index]*
 

@@ -1,11 +1,10 @@
-#summary Index page for the API Reference Material
+# Index page for the API Reference Material
 
-= API Reference =
+# API Reference #
 
 <wiki:toc />
 
-== Things to know / remember == 
-
+## Things to know / remember ##
 <font color='red'> This is a work in progress and meant as a hint to start playing with the API. If you can guess what an API does then by all means give it a go!</font>
 
 The API is REST-based.   All requests follow a standard format, see the [RequestFormat api introduction] for an overview of how to perform these requests.
@@ -16,9 +15,9 @@ Any `/account/...` urls will act on the user corresponding to the OAuth access t
 
 ----
 
-== Audio Clips ==
+## Audio Clips ##
 
-=== All audio clips ===
+### All audio clips ###
 
 These return [paginated] responses.
 
@@ -32,13 +31,13 @@ These return [paginated] responses.
  * GET /audio_clips/popular.*format*
   returns the most popular audio clips ordered by recent listens
 
-=== Tagged audio clips ===
+### Tagged audio clips ###
 This call will return a [paginated] response.
 
  * GET /tag/*tag*/audio_clips.*format*
   returns all the audio clips tagged with the specified tag. The tag in the URL should be [TagNormalisation normalised].
   
-===User's audio clips===
+###User's audio clips###
 These calls will return [paginated] responses.
 
  * GET /users/*user_id*/audio_clips.*format*
@@ -50,7 +49,7 @@ These calls will return [paginated] responses.
  * GET /account/audio_clips.*format* 
   returns the audio_clips uploaded by the user linked to the OAuth access token used.
 
-=== User's followed clips ===
+### User's followed clips ###
 These calls will return [paginated] responses.
 
  * GET /users/*user_id*/audio_clips/followed.*format*
@@ -59,9 +58,9 @@ These calls will return [paginated] responses.
  * GET /account/audio_clips/followed.*format*
   returns the audio clips uploaded by users followed by the user linked to the OAuth access token used.
 
-=== Clips by location ===
+### Clips by location ###
 
-==== Filtering for clips with location ====
+#### Filtering for clips with location ####
 There is a feed of boos restricted only to those with a public location, which may be useful for generating maps of boos, etc.
 This can be accessed using a call to the URL:
 
@@ -69,7 +68,7 @@ This can be accessed using a call to the URL:
 
 <font color="red">At the moment it doesn't follow the same rules regarding context (i.e. /users/12/audio_clips/located.json won't return user 12's located clips - this is a major FIXME for me...)</font>
 
-==== Search by distance from point ==== 
+#### Search by distance from point ####
 If you want to get a list of boos increasing near a specific long/lat point you can call this:
 
  * GET /audio_clips/located.*format*`?`find`[`latitude`]`=*latitude*`&`find`[`longitude`]`=*longitude*
@@ -78,21 +77,21 @@ The results will be ordered by a combination of how recent they are and how far 
 
 Comments welcomed/appreciated but unfortunately not enough time to act on them in the near future.
 
-==== Search for boos "nearby" ====
+#### Search for boos "nearby" ####
 You can search for clips nearby another clip:
 
  * GET /audio_clips/*clip_id*/nearby.*format*
 
 Which will return clips in the same order as clips returned from a long/lat point. For this and the clips from point call you'll also get a "bearing" and "distance" tag in the returned XML for each result which will tell you the bearing and distance of each result from the query location, using the haversine approximation. Don't know if that is useful, but it's there!
 
-==== Clips within a bounding box ====
+#### Clips within a bounding box ####
 You can request all the clips that fall within an arbitrary bounding box.
 
  * GET /audio_clips/located.*format*`?`BBOX=*west*,*south*,*east*,*north*
 
 Pagination rules apply, so it's possible to retrieve *all* clips inside the box...
 
-==== Google Earth KML Feed ====
+#### Google Earth KML Feed ####
 
 Just "for fun" there is a KML generator which you can plug in to google earth. Absolutely unsupported and will potentially break in the future :-)
 
@@ -108,7 +107,7 @@ If you use:
 
 Then it will produce a KML with a tour of the most recent clips.
 
-=== Audio clip details ===
+### Audio clip details ###
 
  * GET /audio_clips/*audio_clip_id*.*format*
   returns the details of the audio clip specified by *audio_clip_id*.
@@ -116,7 +115,7 @@ Then it will produce a KML with a tour of the most recent clips.
  * GET /audio_clips/*audio_clip_id*.mp3
   this will respond with a browser re-direct to the mp3 audio data for the audio clip specified by *audio_clip_id*
 
-=== Posting audio clips ===
+### Posting audio clips ###
 
 POST /account/audio_clips.*format*
 
@@ -162,17 +161,17 @@ If public_location is true, the server expects these values to also be completed
  * `audio_clip[location_accuracy]`
   The accuracy of the reading, in meters - omit this value if it's not available.
 
-=== Image Formats ===
+### Image Formats ###
 Only JPEG and PNG image formats are tested and known to work at the point.
 
-=== Audio Formats ===
+### Audio Formats ###
 We will attempt to transcode any audio file that you throw at us.  We explicitly support FLAC, MP3, and AIFF/WAV.
 
-=== File Uploads ===
+### File Uploads ###
 
 Files should be sent using HTTP multipart encoding.  You must include a 'filename' parameter in the Content-Disposition multipart header, to ensure that our webserver processes it as a file.  If you're authenticating via OAuth, be sure to use the [http://oauth.googlecode.com/svn/spec/ext/body_hash/1.0/oauth-bodyhash.html Body Hash extension].
 
-=== Updating audio clips ===
+### Updating audio clips ###
 
 You can update audio clips by sending a PUT request to the boo's location : 
 
@@ -180,7 +179,7 @@ PUT /audio_clips/*audio_clip_id*.*format*
 
 It accepts the same parameters as those shown in the creation method.
 
-=== Deleting audio clips ===
+### Deleting audio clips ###
 
 You can mark audio clips for deletion by sending a DELETE request to the boo's location :
 
@@ -188,9 +187,9 @@ DELETE /audio_clips/*audio_clip_id*.*format*
 
 ----
 
-== Users ==
+## Users ##
 
-=== Lists of Users ===
+### Lists of Users ###
 
  * GET /users.*format*
   this call requires exactly one of two parameters to find a specific user. The behavior if both parameters are supplied is undefined.
@@ -204,7 +203,7 @@ DELETE /audio_clips/*audio_clip_id*.*format*
    will perform a more flexible search for the query against the users on the system. It can return multiple users that match the query and you can use the `*` as a wildcard
 
 
-=== User details ===
+### User details ###
 
  * GET /users/*user_id*.*format*
   This will return the details for the user specified by the *user_id* parameter.
@@ -212,7 +211,7 @@ DELETE /audio_clips/*audio_clip_id*.*format*
  * GET /account.*format*
   This will return the details of the user linked to the OAuth access token.
 
-== Listing followers / following users ==
+## Listing followers / following users ##
 Just to clarify:
 
 Followers = users who have chosen to follow a user
@@ -233,7 +232,7 @@ You can supply multiple, comma-separated id's to restrict to a series of users, 
 
 GET /account/followers.*format*?find`[`user_id`]`=12,17,5,30,16
 
-=== Creating and Deleting followings ===
+### Creating and Deleting followings ###
 
  * POST /account/followings.*format*
  * DELETE /account/followings.*format*
@@ -242,21 +241,21 @@ GET /account/followers.*format*?find`[`user_id`]`=12,17,5,30,16
 
 ----
 
-== Messaging ==
+## Messaging ##
 
 All of these calls require an authenticated user.
 
-=== Inbox ===
+### Inbox ###
 
 The messages in the user's inbox. [Paginated] and in chronological order (most recent first)
  * GET /account/inbox*.format*
 
-=== Message details ===
+### Message details ###
 
  * GET /account/messages/*message_id*.*format*
  returns the details of the message specified by *message_id*.
 
-=== Post message ===
+### Post message ###
 This will send a message to another user (from the authenticated user).
 
  * POST /account/outbox(.:format)
@@ -281,7 +280,7 @@ The following parameters are unique to posting a message:
  If a reply, the ID of the message it is in reply to.
 
 
-=== Blocking ===
+### Blocking ###
 Some users may be blocked from messaging or following others.
 
 If you GET the details of an individual user, there is a `messaging_enabled` flag indicating whether that user can be messaged, and likewise for the `following_enabled` flag

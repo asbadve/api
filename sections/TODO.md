@@ -1,10 +1,10 @@
-#summary Things in the pipeline...
+# Things in the pipeline...
 
-= API Public Whiteboard / TODO List =
+# API Public Whiteboard / TODO List #
 
 The official list is on the whiteboard on my right, but I'll try and keep this up-to-date so you know what to expect. If you comment on this page I'll hopefully get notified and add suitable suggestions...
 
-== Crucial stuff ==
+## Crucial stuff ##
 
 *_Documentation_* 
 
@@ -46,8 +46,7 @@ The official list is on the whiteboard on my right, but I'll try and keep this u
 
   At the moment you can only see audio-clips for a tag. I'll add browsing for popular and related tags at some point.
 
-== Fun suff == 
-
+## Fun suff ##
 *XMPP Notifications*
 
   I'm overhauling how third-party notifications work in the front-end site, and as a part of this I'd like to add in XMPP PubSub style notifications of internal audio-boo events (such as boo published, etc). Anything to stop people polling!!
