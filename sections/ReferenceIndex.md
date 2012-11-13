@@ -1,8 +1,4 @@
-# Index page for the API Reference Material
-
 # API Reference #
-
-<wiki:toc />
 
 ## Things to know / remember ##
 <font color='red'> This is a work in progress and meant as a hint to start playing with the API. If you can guess what an API does then by all means give it a go!</font>
@@ -228,7 +224,7 @@ You can specify a `find[user_id]` parameter to limit the results to a particular
 
 GET /account/followers.*format*?find`[`user_id`]`=11
 
-You can supply multiple, comma-separated id's to restrict to a series of users, to find if any of the AudioBoo team are following you, try:
+You can supply multiple, comma-separated id's to restrict to a series of users, to find if any of the Audioboo team are following you, try:
 
 GET /account/followers.*format*?find`[`user_id`]`=12,17,5,30,16
 

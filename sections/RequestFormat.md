@@ -7,16 +7,12 @@ Being a REST-style API, all calls are made to paths based on the resource you're
 
 For example, if you're trying to access a list of clips a user is following, you'll make HTTP `GET` request to:
 
-{{{
-http://api.audioboo.fm/users/12/audio_clips/followed.json
-}}}
+`http://api.audioboo.fm/users/12/audio_clips/followed`
 
 where 12 is the id of the user you're interested in and you want data returned in the JSON encoding. See [RequestFormat#Response_Encoding Response Encoding] below to find out what encodings we can use in responses.
 
 If you were trying to upload a clip to the linked user, you'd make a HTTP `POST` to:
-{{{
-http://api.audioboo.fm/account/audio_clips
-}}}
+`http://api.audioboo.fm/account/audio_clips`
 
 ## Standard Parameters ##
 To enable us to track what version of the API specification you have used to write your application, you should always include a `version` parameter along with the parameters of the API you are calling.
@@ -37,14 +33,10 @@ Parameters required by the API call can be submitted in one of a few ways:
 We have internally simplified returned data into series of hashes, arrays and basic data types that can be easily represented in a variety of encoding formats. As mentioned above, you can request a particular format by changing the extension of the page you request. 
 
 So for a JSON response, you'd call:
-{{{
-http://api.audioboo.fm/users/12/audio_clips/followed.json
-}}}
+`http://api.audioboo.fm/users/12/audio_clips/followed.json`
 
 yet, for a YAML response, you'd go for:
-{{{
-http://api.audioboo.fm/users/12/audio_clips/followed.yaml
-}}}
+`http://api.audioboo.fm/users/12/audio_clips/followed.yaml`
 
 
 The formats we currently support are;
