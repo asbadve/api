@@ -1,14 +1,14 @@
-# Getting help with using the audioboo API
+# Getting help with using the Audioboo API
 
 # Support #
 
 ## Mailing Lists ##
-As mentioned on the [StartPage Start Page] you should subscribe to the [Audioboo Discussion](http://groups.google.com/group/audioboo-api-discuss) google group, and the discussion list should be your first port-of-call with any problems. At a minimum the audioboo devs _should_ also be subscribed to this list.
+You can ask for help & discuss the API with fellow developers on the [Audioboo Discussion](http://groups.google.com/group/audioboo-api-discuss) google group, and the discussion list should be your first port-of-call with any problems. At a minimum the audioboo devs _should_ also be subscribed to this list.
 
 *Make sure you search for existing open discussions on the same topic before starting a new thread*
 
 ## Issue Tracking ##
-If you think there's something wrong with our server - post an Issue on the google-code page. This way we can track it, ask questions and solicit feedback.
+If you think there's something wrong with our server - post an issue on the [Github page](http://github.com/audioboo/api/issues). This way we can track it, ask questions and solicit feedback.
 
 *As with the group, make sure you search and comment on any existing issues before raising a new one*
 
