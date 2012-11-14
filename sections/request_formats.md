@@ -9,7 +9,7 @@ For example, if you're trying to access a list of clips a user is following, you
 
 `http://api.audioboo.fm/users/12/audio_clips/followed`
 
-where 12 is the id of the user you're interested in.  See [Response Encoding](https://github.com/audioboo/api/blob/master/sections/request_formats.md#Response_Encoding) below to find out what encodings we can use in responses.
+where 12 is the id of the user you're interested in.  See [Response Encoding](https://github.com/audioboo/api/blob/master/sections/request_formats.md#response-encoding) below to find out what encodings we can use in responses.
 
 If you were trying to upload a clip to the linked user, you'd make a HTTP `POST` to:
 `http://api.audioboo.fm/account/audio_clips`

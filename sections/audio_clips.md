@@ -110,13 +110,13 @@ The same parameters are used for either endpoint:
 
 
  * `audio_clip[uploaded_data]` (required)
-  The uploaded audio data as a multipart file, see [Audio Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#Audio_Formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#File_Uploads).
+  The uploaded audio data as a multipart file, see [Audio Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#audio-formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#file-uploads).
 
  * `audio_clip[uuid]` (recommended)
   A [universally unique identifier](http://en.wikipedia.org/wiki/Universally_unique_identifier), to aid the server in duplicate-detection.  The uuid must not contain spaces or a newline characters.
 
  * `audio_clip[uploaded_image]`
-  The uploaded image data as a multipart file, see see [Image Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#Image_Formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#File_Uploads).
+  The uploaded image data as a multipart file, see see [Image Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#image-formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#file-uploads).
 
  * `audio_clip[title]`
   The title for the audio clip.
