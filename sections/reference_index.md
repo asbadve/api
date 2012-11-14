@@ -12,13 +12,12 @@ Any `/account/...` urls will act on the user corresponding to the OAuth access t
 
 The different API endpoints are broken up by section : 
 
-* [Boos / AudioClips](https://github.com/audioboo/api/blob/master/sections/audio_clips.md)
-* [Followers](https://github.com/audioboo/api/blob/master/sections/followers.md)
-* [Messages](https://github.com/audioboo/api/blob/master/sections/messages.md)
-* [Users](https://github.com/audioboo/api/blob/master/sections/users.md)
+### [Boos / AudioClips](https://github.com/audioboo/api/blob/master/sections/audio_clips.md)
+### [Followers](https://github.com/audioboo/api/blob/master/sections/followers.md)
+### [Messages](https://github.com/audioboo/api/blob/master/sections/messages.md)
+### [Users](https://github.com/audioboo/api/blob/master/sections/users.md)
 
-
-
+----
 
 
 ### Blocking ###
