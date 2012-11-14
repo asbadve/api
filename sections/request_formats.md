@@ -3,13 +3,13 @@
 # API Call Format #
 
 ## Request URLs ##
-Being a REST-style API, all calls are made to paths based on the resource you're accessing. For more specifics on individual resources, see the [ReferenceIndex API Reference].
+Being a REST-style API, all calls are made to paths based on the resource you're accessing. For more specifics on individual resources, see the [API Reference](https://github.com/audioboo/api/blob/master/sections/reference_index.md).
 
 For example, if you're trying to access a list of clips a user is following, you'll make HTTP `GET` request to:
 
 `http://api.audioboo.fm/users/12/audio_clips/followed`
 
-where 12 is the id of the user you're interested in and you want data returned in the JSON encoding. See [RequestFormat#Response_Encoding Response Encoding] below to find out what encodings we can use in responses.
+where 12 is the id of the user you're interested in.  See [Response Encoding](https://github.com/audioboo/api/blob/master/sections/request_formats.md#Response_Encoding) below to find out what encodings we can use in responses.
 
 If you were trying to upload a clip to the linked user, you'd make a HTTP `POST` to:
 `http://api.audioboo.fm/account/audio_clips`
@@ -22,29 +22,25 @@ The current value of `version` is 200. If your app uses a version number that is
 ## Request Parameter Encoding ##
 Parameters required by the API call can be submitted in one of a few ways:
 
- * [http://en.wikipedia.org/wiki/Query_string Query String Parameters]
- * Parameter data in HTML request body ([http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1 W3C Spec]):
+  * [Query String Parameters](http://en.wikipedia.org/wiki/Query_string)
+  * Parameter data in HTML request body ([W3C Spec](http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1)):
   * URL-encoded field data (application/x-www-form-urlencoded)
   * multipart/form-data (multipart/form-data)
 
  _NOTE:_ multipart/form-data _must_ be used when posting large fields, such as an uploaded audio-file.
 
 ## Response Encoding ##
-We have internally simplified returned data into series of hashes, arrays and basic data types that can be easily represented in a variety of encoding formats. As mentioned above, you can request a particular format by changing the extension of the page you request. 
+We have internally simplified returned data into series of hashes, arrays and basic data types that can be easily represented in a variety of encoding formats.  You can request a particular format using the HTTP Accept header, or by specifying the extension in the URI.  By default, json will be returned.
 
-So for a JSON response, you'd call:
-`http://api.audioboo.fm/users/12/audio_clips/followed.json`
+Thus, both the following commands are equivalent:
+```
+  curl http://api.audioboo.fm/audio_clips.xml
+  curl -H"Accept: application/xml" http://api.audioboo.fm/audio_clips
+```
 
-yet, for a YAML response, you'd go for:
-`http://api.audioboo.fm/users/12/audio_clips/followed.yaml`
 
+We currently support  [json](http://en.wikipedia.org/wiki/JSON), [jsonp](http://en.wikipedia.org/wiki/JSON#JSONP),  [xml](http://en.wikipedia.org/wiki/XML), and [yaml](http://en.wikipedia.org/wiki/YAML).
 
-The formats we currently support are-
-
- * [xml](http://en.wikipedia.org/wiki/XML)
- * [yaml](http://en.wikipedia.org/wiki/YAML)
- * [json](http://en.wikipedia.org/wiki/JSON)
- * [jsonp](http://en.wikipedia.org/wiki/JSON#JSONP)
 
 _NOTE:_ If you use JSON-P, you also need to supply a `callback` parameter which is used as the wrapper function when the data is returned.
 
@@ -53,9 +49,11 @@ When data is returned in the format you have requested, the root object is alway
 
 Any response data relating to the request made will _always_ be returned in the `body` element of this hash.
 
-## Error Responses ##
-TODO: Errors during processing
+## Response Status Codes ##
+The response status code will follow [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).  All successful requests will return a 2xx HTTP status code, i.e. 200 for a normal request, 201 for a request in which an entity is created (such as an Audio Clip).
 
-## Scheduled Downtime ##
+For failed requests, the server will typically return a suitable status value. If there is an internal server failure, for example, you will receive a 500 status code which should be presented to the user as a transient failure that should resolve itself at some point.
 
-TODO: Explain what the feeds will do when we bring the servers down. Example page?
+API failures caused by errors in the request will have two HTTP headers added to the server’s response,  `X-Audioboo-Error_code` and `X-Audioboo-Error_description`. The failure in this case is due to a failure between the client and the server, such as invalid signature or disabled service or source keys on the server.
+
+A special case to this is the Audioboo error code 800, which indicates that the API version attached to the request sent is out of date and not supported by the server. In this case, it would be a wise idea to display the description sent by the server directly to the user as this will probably contain instructions on updating the client. No further attempts should be made to communicate with the server as they will result in the same response.
