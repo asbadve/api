@@ -16,41 +16,41 @@ Any `/account/...` urls will act on the user corresponding to the OAuth access t
 
 These return [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) responses.
 
- * GET /audio_clips.*format*
+ * GET /audio_clips
   returns all boos in chronological order (most recent first)
- * GET /audio_clips.*format*?find`[`query`]`=*query*
+ * GET /audio_clips?find`[`query`]`=*query*
   searches for boos matching the *query* search term.
   returns all boos in chronological order (most recent first)
- * GET /audio_clips/featured.*format*
+ * GET /audio_clips/featured
   returns the editorially "featured" boos as appear on the web-site
- * GET /audio_clips/popular.*format*
+ * GET /audio_clips/popular
   returns the most popular audio clips ordered by recent listens
 
 ### Tagged audio clips ###
 This call will return a [paginated] response.
 
- * GET /tag/*tag*/audio_clips.*format*
+ * GET /tag/*tag*/audio_clips
   returns all the audio clips tagged with the specified tag.
   
 ###User's audio clips###
 These calls will return [paginated] responses.
 
- * GET /users/*user_id*/audio_clips.*format*
+ * GET /users/*user_id*/audio_clips
   returns the audio clips uploaded by the user specified by *user_id*.
 
- * GET /audio_clips.*format*?username=*username*
+ * GET /audio_clips?username=*username*
   returns the audio clips uploaded by *username*.  If known, using the user's id is preferred, since it's guaranteed to never change.
 
- * GET /account/audio_clips.*format* 
+ * GET /account/audio_clips 
   returns the audio_clips uploaded by the user linked to the OAuth access token used.
 
 ### User's followed clips ###
 These calls will return [paginated] responses.
 
- * GET /users/*user_id*/audio_clips/followed.*format*
+ * GET /users/*user_id*/audio_clips/followed
   returns the audio clips uploaded by users followed by the user specified by *user_id*.
 
- * GET /account/audio_clips/followed.*format*
+ * GET /account/audio_clips/followed
   returns the audio clips uploaded by users followed by the user linked to the OAuth access token used.
 
 ### Clips by location ###
@@ -59,26 +59,26 @@ These calls will return [paginated] responses.
 There is a feed of boos restricted only to those with a public location, which may be useful for generating maps of boos, etc.
 This can be accessed using a call to the URL:
 
- * GET /audio_clips/located.*format*
+ * GET /audio_clips/located
 
 #### Search by distance from point ####
 If you want to get a list of boos increasing near a specific long/lat point you can call this:
 
- * GET /audio_clips/located.*format*`?`find`[`latitude`]`=*latitude*`&`find`[`longitude`]`=*longitude*
+ * GET /audio_clips/located`?`find`[`latitude`]`=*latitude*`&`find`[`longitude`]`=*longitude*
 
 The results will be ordered by a function of recentness and closeness to the given point.
 
 #### Search for boos "nearby" ####
 You can search for clips nearby another clip:
 
- * GET /audio_clips/*clip_id*/nearby.*format*
+ * GET /audio_clips/*clip_id*/nearby
 
 Which will return clips in the same order as clips returned from a long/lat point. For this and the clips from point call you'll also get a "bearing" and "distance" tag in the returned XML for each result which will tell you the bearing and distance of each result from the query location, using the haversine approximation. Don't know if that is useful, but it's there!
 
 #### Clips within a bounding box ####
 You can request all the clips that fall within an arbitrary bounding box.
 
- * GET /audio_clips/located.*format*`?`BBOX=*west*,*south*,*east*,*north*
+ * GET /audio_clips/located`?`BBOX=*west*,*south*,*east*,*north*
 
 Pagination rules apply, so it's possible to retrieve *all* clips inside the box...
 
@@ -100,7 +100,7 @@ Then it will produce a KML with a tour of the most recent clips.
 
 ### Audio clip details ###
 
- * GET /audio_clips/*audio_clip_id*.*format*
+ * GET /audio_clips/*audio_clip_id*
   returns the details of the audio clip specified by *audio_clip_id*.
 
  * GET /audio_clips/*audio_clip_id*.mp3
@@ -108,13 +108,13 @@ Then it will produce a KML with a tour of the most recent clips.
 
 ### Posting audio clips ###
 
-POST /account/audio_clips.*format*
+POST /account/audio_clips
 
 this will post an audio clip into the recent clips of the user linked to the OAuth access token used.
 
 To post to a channel, you can use 
 
-POST /channels/*channel_id*/audio_clips.*format*
+POST /channels/*channel_id*/audio_clips
 
 which will post an audio clip to the specified channel.
 
@@ -166,7 +166,7 @@ Files should be sent using HTTP multipart encoding.  You must include a 'filenam
 
 You can update audio clips by sending a PUT request to the boo's location : 
 
-PUT /audio_clips/*audio_clip_id*.*format*
+PUT /audio_clips/*audio_clip_id*
 
 It accepts the same parameters as those shown in the creation method.
 
@@ -174,7 +174,7 @@ It accepts the same parameters as those shown in the creation method.
 
 You can mark audio clips for deletion by sending a DELETE request to the boo's location :
 
-DELETE /audio_clips/*audio_clip_id*.*format*
+DELETE /audio_clips/*audio_clip_id*
 
 ----
 
@@ -182,7 +182,7 @@ DELETE /audio_clips/*audio_clip_id*.*format*
 
 ### Lists of Users ###
 
- * GET /users.*format*
+ * GET /users
   this call requires exactly one of two parameters to find a specific user. The behavior if both parameters are supplied is undefined.
 
     `find[username]=*username*`
@@ -196,10 +196,10 @@ DELETE /audio_clips/*audio_clip_id*.*format*
 
 ### User details ###
 
- * GET /users/*user_id*.*format*
+ * GET /users/*user_id*
   This will return the details for the user specified by the *user_id* parameter.
 
- * GET /account.*format*
+ * GET /account
   This will return the details of the user linked to the OAuth access token.
 
 ## Listing followers / following users ##
@@ -209,24 +209,24 @@ Followers = users who have chosen to follow a user
 
 Followings = users who a specific user is following
 
- * GET /users/*user_id*/followings.*format*
- * GET /account/followings.*format*
+ * GET /users/*user_id*/followings
+ * GET /account/followings
 
- * GET /users/*user_id*/followers.*format*
- * GET /account/followers.*format*
+ * GET /users/*user_id*/followers
+ * GET /account/followers
 
 You can specify a `find[user_id]` parameter to limit the results to a particular set of users. To, for example, find out if stephen fry is following you, you'd call:
 
-GET /account/followers.*format*?find`[`user_id`]`=11
+GET /account/followers?find`[`user_id`]`=11
 
 You can supply multiple, comma-separated id's to restrict to a series of users, to find if any of the Audioboo team are following you, try:
 
-GET /account/followers.*format*?find`[`user_id`]`=12,17,5,30,16
+GET /account/followers?find`[`user_id`]`=12,17,5,30,16
 
 ### Creating and Deleting followings ###
 
- * POST /account/followings.*format*
- * DELETE /account/followings.*format*
+ * POST /account/followings
+ * DELETE /account/followings
 
   Both of these calls require a single parameter `following_user_id` which is the id of the user to follow or un-follow.
 
@@ -243,7 +243,7 @@ The messages in the user's inbox. [Paginated] and in chronological order (most r
 
 ### Message details ###
 
- * GET /account/messages/*message_id*.*format*
+ * GET /account/messages/*message_id*
  returns the details of the message specified by *message_id*.
 
 ### Post message ###
