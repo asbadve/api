@@ -16,6 +16,7 @@ The different API endpoints are broken up by section :
 ### [Followers](https://github.com/audioboo/api/blob/master/sections/followers.md)
 ### [Messages](https://github.com/audioboo/api/blob/master/sections/messages.md)
 ### [Users](https://github.com/audioboo/api/blob/master/sections/users.md)
+### [Playlists](https://github.com/audioboo/api/blob/master/sections/playlists.md)
 
 ----
 
