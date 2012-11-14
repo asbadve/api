@@ -25,7 +25,7 @@ You twitter users could also follow [@audiobooapi](http://twitter.com/audiobooap
 
  * [Making authenticated API calls](https://github.com/audioboo/api/blob/master/sections/authentication.md) - Any API calls that write data or access private information must be authenticated.
 
- * [Support, help and feedback]((https://github.com/audioboo/api/blob/master/sections/support.md) - What to do if you have problems, need help or have feedback.
+ * [Support, help and feedback](https://github.com/audioboo/api/blob/master/sections/support.md) - What to do if you have problems, need help or have feedback.
  
 
 ## Reference Material ##

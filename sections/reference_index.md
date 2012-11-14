@@ -1,9 +1,8 @@
 # API Reference #
 
 ## Things to know / remember ##
-<font color='red'> This is a work in progress and meant as a hint to start playing with the API. If you can guess what an API does then by all means give it a go!</font>
 
-The API is REST-based.   All requests follow a standard format, see the [RequestFormat api introduction] for an overview of how to perform these requests.
+The API is REST-based.   All requests follow a standard format, see the [api introduction](https://github.com/audioboo/api/blob/master/sections/request_formats.md) for an overview of how to perform these requests.
 
 All parts of a URL in bold are parameters that should be replaced before making calls!
 
@@ -11,11 +10,11 @@ Any `/account/...` urls will act on the user corresponding to the OAuth access t
 
 ----
 
-## Audio Clips ##
+## Audio Clips (Boos)##
 
 ### All audio clips ###
 
-These return [paginated] responses.
+These return [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) responses.
 
  * GET /audio_clips.*format*
   returns all boos in chronological order (most recent first)
@@ -31,7 +30,7 @@ These return [paginated] responses.
 This call will return a [paginated] response.
 
  * GET /tag/*tag*/audio_clips.*format*
-  returns all the audio clips tagged with the specified tag. The tag in the URL should be [TagNormalisation normalised].
+  returns all the audio clips tagged with the specified tag.
   
 ###User's audio clips###
 These calls will return [paginated] responses.
@@ -62,16 +61,12 @@ This can be accessed using a call to the URL:
 
  * GET /audio_clips/located.*format*
 
-<font color="red">At the moment it doesn't follow the same rules regarding context (i.e. /users/12/audio_clips/located.json won't return user 12's located clips - this is a major FIXME for me...)</font>
-
 #### Search by distance from point ####
 If you want to get a list of boos increasing near a specific long/lat point you can call this:
 
  * GET /audio_clips/located.*format*`?`find`[`latitude`]`=*latitude*`&`find`[`longitude`]`=*longitude*
 
-The results will be ordered by a combination of how recent they are and how far away from the point they are, so something 20m away done 2 days ago could be after something 100m away done 1 hour ago. There isn't currently a way to manipulate this behaviour.
-
-Comments welcomed/appreciated but unfortunately not enough time to act on them in the near future.
+The results will be ordered by a function of recentness and closeness to the given point.
 
 #### Search for boos "nearby" ####
 You can search for clips nearby another clip:
@@ -127,13 +122,13 @@ The same parameters are used for either endpoint:
 
 
  * `audio_clip[uploaded_data]` (required)
-  The uploaded audio data as a multipart file, see [ReferenceIndex#Audio_Formats] and [ReferenceIndex#File_Uploads].
+  The uploaded audio data as a multipart file, see [Audio Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#Audio_Formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#File_Uploads).
 
  * `audio_clip[uuid]` (recommended)
-  A [http://en.wikipedia.org/wiki/Universally_unique_identifier universally unique identifier], to aid the server in duplicate-detection.  The uuid must not contain spaces or a newline characters.
+  A [universally unique identifier](http://en.wikipedia.org/wiki/Universally_unique_identifier), to aid the server in duplicate-detection.  The uuid must not contain spaces or a newline characters.
 
  * `audio_clip[uploaded_image]`
-  The uploaded image data as a multipart file, see see [ReferenceIndex#Image_Formats] and [ReferenceIndex#File_Uploads].
+  The uploaded image data as a multipart file, see see [Image Formats](https://github.com/audioboo/api/blob/master/sections/reference_index.md#Image_Formats) and [File Uploads](https://github.com/audioboo/api/blob/master/sections/reference_index.md#File_Uploads).
 
  * `audio_clip[title]`
   The title for the audio clip.
@@ -165,7 +160,7 @@ We will attempt to transcode any audio file that you throw at us.  We explicitly
 
 ### File Uploads ###
 
-Files should be sent using HTTP multipart encoding.  You must include a 'filename' parameter in the Content-Disposition multipart header, to ensure that our webserver processes it as a file.  If you're authenticating via OAuth, be sure to use the [http://oauth.googlecode.com/svn/spec/ext/body_hash/1.0/oauth-bodyhash.html Body Hash extension].
+Files should be sent using HTTP multipart encoding.  You must include a 'filename' parameter in the Content-Disposition multipart header, to ensure that our webserver processes it as a file.  If you're authenticating via OAuth, be sure to use the [Body Hash extension](http://oauth.googlecode.com/svn/spec/ext/body_hash/1.0/oauth-bodyhash.html).
 
 ### Updating audio clips ###
 

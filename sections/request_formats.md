@@ -39,13 +39,14 @@ yet, for a YAML response, you'd go for:
 `http://api.audioboo.fm/users/12/audio_clips/followed.yaml`
 
 
-The formats we currently support are;
- * [http://en.wikipedia.org/wiki/XML xml]
- * [http://en.wikipedia.org/wiki/YAML yaml]
- * [http://en.wikipedia.org/wiki/JSON json]
- * [http://en.wikipedia.org/wiki/JSON#JSONP jsonp]
+The formats we currently support are-
 
- _NOTE:_ If you use JSON-P, you also need to supply a `callback` parameter which is used as the wrapper function when the data is returned.
+ * [xml](http://en.wikipedia.org/wiki/XML)
+ * [yaml](http://en.wikipedia.org/wiki/YAML)
+ * [json](http://en.wikipedia.org/wiki/JSON)
+ * [jsonp](http://en.wikipedia.org/wiki/JSON#JSONP)
+
+_NOTE:_ If you use JSON-P, you also need to supply a `callback` parameter which is used as the wrapper function when the data is returned.
 
 ## Response Envelope ##
 When data is returned in the format you have requested, the root object is always a hash that acts as a response envelope allowing out-of-band data to be passed back to the application. As it currently stands, the server only returns an api-version key and the servers integer timestamp.

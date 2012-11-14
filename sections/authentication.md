@@ -14,7 +14,7 @@ OAuth has no mechanism to allow authenticated but anonymous calls to be made, so
 If you're interested in using the private authentication scheme to mirror the behaviour of the iPhone application, contact info@audioboo.fm.
 
 ## OAuth Scheme ##
-The public API supports the OAuth standard to make authenticated calls on behalf of a user. To find out more about the OAuth specification and to find a library that implements it in your language, see [http://oauth.net/].
+The public API supports the OAuth standard to make authenticated calls on behalf of a user. To find out more about the OAuth specification and to find a library that implements it in your language, see http://oauth.net/.
 
 <font color=red>
 *NOTE:* As it stands, the server will respond to both OAuth 1.0 Rev. A and OAuth1.0 requests (i.e. with and without the PIN based desktop workflow d the oauth_verifier response). I'm not entirely sure of the state of the transition to 1.0rev A - so staying backwards compatible for the time being.
