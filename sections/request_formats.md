@@ -38,6 +38,89 @@ Thus, both the following commands are equivalent:
   curl -H"Accept: application/xml" http://api.audioboo.fm/audio_clips
 ```
 
+###Examples:
+`curl http://api.audioboo.fm/audio_clips.json`
+
+```json
+{
+	"timestamp":1255083877,
+	"version":200,
+	"body":{
+		"audio_clips":[
+		{
+            "id": 12345, 
+            "title": "New Romney Beach", 
+            "duration": 136.2, 
+            "location": {
+                "accuracy": 70.0, 
+                "description": "Ashford, Kent, United Kingdom", 
+                "latitude": 51.1245, 
+                "longitude": 0.869696
+            }, 
+            "tags": [
+                {
+                    "display_tag": "beach", 
+                    "normalised_tag": "beach", 
+                    "url": "http://audioboo.fm/tag/beach"
+                }, {
+                    "display_tag": "summer", 
+                    "normalised_tag": "summer", 
+                    "url": "http://audioboo.fm/tag/summer"
+                }
+            ], 
+            "recorded_at": "2009-04-29T16:28:14Z", 
+            "uploaded_at": "2009-04-29T20:22:29Z", 
+            "urls": {
+                "detail": "http://audioboo.fm/boos/12345-new-romney-beach", 
+                "high_mp3": "http://audioboo.fm/boos/12345-new-romney-beach.mp3", 
+                "image": "http://audioboo.fm/files/images/0004/4474/clipAttachment.jpg"
+            }
+			...
+```
+
+`curl http://api.audioboo.fm/audio_clips.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<audioboo>
+  <window type="integer">60</window>
+  <version type="integer">200</version>
+  <timestamp type="integer">1353244551</timestamp>
+  <body>
+    <audio_clips type="array">
+      <audio_clip>
+        <id type="integer">12345</id>
+        <title>New Romney Beach</title>
+        <duration type="float">136.2</duration>
+        <uploaded_at type="datetime">2009-04-29T20:22:29Z</uploaded_at>
+        <recorded_at type="datetime">2009-04-29T16:28:14Z</recorded_at>
+        <location>
+          <description>Ashford, Kent, United Kingdom</description>
+          <longitude type="float">0.869696</longitude>
+          <latitude type="float">51.1245</latitude>
+          <accuracy type="float">70.0</accuracy>
+        </location>
+        <urls>
+          <detail>http://audioboo.fm/boos/12345-new-romney-beach</detail>
+          <high_mp3>http://audioboo.fm/boos/12345-new-romney-beach.mp3</high_mp3>
+          <image>http://audioboo.fm/files/images/0004/4474/clipAttachment.jpg</image>
+        </urls>
+        <tags type="array">
+          <tag>
+            <display_tag>beach</display_tag>
+            <normalised_tag>beach</normalised_tag>
+            <url>http://audioboo.fm/tag/beach</url>
+          </tag>
+          <tag>
+            <display_tag>summer</display_tag>
+            <normalised_tag>summer</normalised_tag>
+            <url>http://audioboo.fm/tag/summer</url>
+          </tag>
+        </tags>
+      </audio_clip>
+	  ...
+```
+
 
 We currently support  [json](http://en.wikipedia.org/wiki/JSON), [jsonp](http://en.wikipedia.org/wiki/JSON#JSONP),  [xml](http://en.wikipedia.org/wiki/XML), and [yaml](http://en.wikipedia.org/wiki/YAML).
 

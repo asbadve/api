@@ -6,7 +6,7 @@ These return [paginated](https://github.com/audioboo/api/blob/master/sections/pa
 
  * GET /audio_clips
   returns all boos in chronological order (most recent first)
- * GET /audio_clips?find`[`query`]`=*query*
+ * GET /audio_clips?find[query]=*query*
   searches for boos matching the *query* search term.
   returns all boos in chronological order (most recent first)
  * GET /audio_clips/featured
@@ -52,7 +52,7 @@ This can be accessed using a call to the URL:
 #### Search by distance from point ####
 If you want to get a list of boos increasing near a specific long/lat point you can call this:
 
- * GET /audio_clips/located`?`find`[`latitude`]`=*latitude*`&`find`[`longitude`]`=*longitude*
+ * GET /audio_clips/located?find[latitude]=*latitude*&find[longitude]=*longitude*
 
 The results will be ordered by a function of recentness and closeness to the given point.
 
@@ -66,7 +66,7 @@ Which will return clips in the same order as clips returned from a long/lat poin
 #### Clips within a bounding box ####
 You can request all the clips that fall within an arbitrary bounding box.
 
- * GET /audio_clips/located`?`BBOX=*west*,*south*,*east*,*north*
+ * GET /audio_clips/located?BBOX=*west*,*south*,*east*,*north*
 
 Pagination rules apply, so it's possible to retrieve *all* clips inside the box...
 
@@ -88,21 +88,21 @@ Then it will produce a KML with a tour of the most recent clips.
 
 ### Audio clip details ###
 
- * GET /audio_clips/*audio_clip_id*
+ * `GET /audio_clips/*audio_clip_id*`
   returns the details of the audio clip specified by *audio_clip_id*.
 
- * GET /audio_clips/*audio_clip_id*.mp3
+ * `GET /audio_clips/*audio_clip_id*.mp3`
   this will respond with a browser re-direct to the mp3 audio data for the audio clip specified by *audio_clip_id*
 
 ### Posting audio clips ###
 
-POST /account/audio_clips
+`POST /account/audio_clips`
 
 this will post an audio clip into the recent clips of the user linked to the OAuth access token used.
 
 To post to a channel, you can use 
 
-POST /channels/*channel_id*/audio_clips
+`POST /channels/*channel_id*/audio_clips`
 
 which will post an audio clip to the specified channel.
 
@@ -131,6 +131,7 @@ The same parameters are used for either endpoint:
   Boolean value indicating if location should be public on the website. Use strings 'true' or 'false'.
 
 If public_location is true, the server expects these values to also be completed:
+
  * `audio_clip[location_latitude]`
   The latitude value of the location, encoded as a string representation of a decimal number between -90.0 (south) to +90.0 (north).
 
@@ -144,7 +145,7 @@ If public_location is true, the server expects these values to also be completed
 
 You can update audio clips by sending a PUT request to the boo's location : 
 
-PUT /audio_clips/*audio_clip_id*
+`PUT /audio_clips/*audio_clip_id*`
 
 It accepts the same parameters as those shown in the creation method.
 
@@ -152,4 +153,4 @@ It accepts the same parameters as those shown in the creation method.
 
 You can mark audio clips for deletion by sending a DELETE request to the boo's location :
 
-DELETE /audio_clips/*audio_clip_id*
+`DELETE /audio_clips/*audio_clip_id*`
