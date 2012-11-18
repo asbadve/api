@@ -18,6 +18,7 @@ The different API endpoints are broken up by section :
 ### [Users](https://github.com/audioboo/api/blob/master/sections/users.md)
 ### [Playlists](https://github.com/audioboo/api/blob/master/sections/playlists.md)
 ### [Favourites](https://github.com/audioboo/api/blob/master/sections/favourites.md)
+### [Uploading Chunked (Partial) Files](https://github.com/audioboo/api/blob/master/sections/chunked_attachments.md)
 
 ----
 
