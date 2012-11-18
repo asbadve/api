@@ -39,7 +39,7 @@ Using chunked uploads, you would create a chunked attachment, receive an id in r
 {
 	"attachment": {
 		"size": 178182,
-		"filename": 'audio.flac',
+		"filename": "audio.flac",
 		"chunk": <PartialFileData>,
 		"chunk_offset": 0
 	}
