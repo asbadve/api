@@ -6,9 +6,10 @@ Get Categories
 ----
 `GET /categories` Returns a list of categories used on Audioboo
 Certain categories are only available for boos or for channels, by default this method only returns channel categories. You should filter the result set to only include the type you are interested in by using one of :
-`GET /categories/channels`
-`GET /categories/boos`
-`GET /categories/all`
+
+* `GET /categories/channels`
+* `GET /categories/boos`
+* `GET /categories/all`
 
 It is likely that in the future, the default filter on `GET /categories` will change to return all categories rather than just channel-categories.
 
@@ -43,7 +44,7 @@ Show category contents
 
 `GET /categories/<id>` Returns all channels / boos within the given category.
   
-`GET /categories/1`
+`GET /categories/1` :
 ```json
 {
     "body": {
