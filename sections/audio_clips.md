@@ -127,6 +127,9 @@ The same parameters are used for either endpoint:
  * `audio_clip[tag_list]`
   The tags to associate with the audio clip. These should be comma separated, and use quotes if the tag itself contains a comma. 
 
+ * `audio_clip[category_id]`
+  The category to associate with the audio clip, obtained from `GET /categories/boos`
+
  * `audio_clip[public_location]`
   Boolean value indicating if location should be public on the website. Use strings 'true' or 'false'.
 
