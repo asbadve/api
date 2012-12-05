@@ -2,21 +2,21 @@
 
 ### Lists of Users Playlists ###
 
- * GET /users/*user_id*/playlists
+ * `GET /users/*user_id*/playlists`
 
 This call will return a list of users playlists.
   
 
 ### Playlist details ###
 
- * GET /playlists/*playlist_id*
+ * `GET /playlists/*playlist_id*`
 
 This call will return a paginated detail view of the playlist and it's audio clip members.
 
 
 ### Create playlist (Authenticated) ###
 
- * POST /playlists
+ * `POST /playlists`
   
 This call will create a playlist for the current authenticated user.
 
@@ -28,7 +28,7 @@ This call will create a playlist for the current authenticated user.
 
 ### Update playlist (Authenticated) ###
 
- * PUT /playlists/*playlist_id*
+ * `PUT /playlists/*playlist_id*`
   
 This call will update a playlist details.
 
@@ -40,14 +40,14 @@ This call will update a playlist details.
 
 ### Deleting a playlist (Authenticated) ###
 
- * DELETE /playlists/*playlist_id*
+ * `DELETE /playlists/*playlist_id*`
   
 This call will delete a playlist.
 
 
 ### Adding boos/clips to playlist (Authenticated) ###
 
- * POST /playlists/*playlist_id*/memberships
+ * `POST /playlists/*playlist_id*/memberships`
   
 This call will add an audioclip to a playlist.
 
@@ -58,14 +58,14 @@ This call will add an audioclip to a playlist.
 
 ### Removing boo/clip from playlist (Authenticated) ###
 
- * DELETE /playlists/*playlist_id*/memberships/*membership_id*
+ * `DELETE /playlists/*playlist_id*/memberships/*membership_id*`
   
 This call will remove an audioclip from a playlist.
 
 
 ### Updating the position of audioclip within the playlist (Authenticated) ###
 
- * POST /playlists/*playlist_id*/memberships/*membership_id*
+ * `POST /playlists/*playlist_id*/memberships/*membership_id*`
   
 This call will update the audioclip position within the playlist.
 
