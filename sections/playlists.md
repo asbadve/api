@@ -53,7 +53,7 @@ This call will add an audioclip to a playlist.
 
   Parameters accepted:
 
-  * `playlist_memberships[audio_clip_id]` (required) 
+  * `playlist_membership[audio_clip_id]` (required) 
 
 
 ### Removing boo/clip from playlist (Authenticated) ###
@@ -71,5 +71,5 @@ This call will update the audioclip position within the playlist.
 
   Parameters accepted:
 
-  * `playlist_memberships[position]` (required) 
+  * `playlist_membership[position]` (required) 
 
