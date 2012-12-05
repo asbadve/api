@@ -47,7 +47,7 @@ This call will delete a playlist.
 
 ### Adding boos/clips to playlist (Authenticated) ###
 
- * POST /playlists/*playlist_id*/playlist_memberships
+ * POST /playlists/*playlist_id*/memberships
   
 This call will add an audioclip to a playlist.
 
@@ -65,7 +65,7 @@ This call will remove an audioclip from a playlist.
 
 ### Updating the position of audioclip within the playlist (Authenticated) ###
 
- * POST /playlists/*playlist_id*/playlist_memberships/*membership_id*
+ * POST /playlists/*playlist_id*/memberships/*membership_id*
   
 This call will update the audioclip position within the playlist.
 
