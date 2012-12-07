@@ -4,41 +4,41 @@
 
 These return [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) responses.
 
- * GET /audio_clips
+ * `GET /audio_clips`
   returns all boos in chronological order (most recent first)
- * GET /audio_clips?find[query]=*query*
+ * `GET /audio_clips?find[query]=*query*`
   searches for boos matching the *query* search term.
   returns all boos in chronological order (most recent first)
- * GET /audio_clips/featured
+ * `GET /audio_clips/featured`
   returns the editorially "featured" boos as appear on the web-site
- * GET /audio_clips/popular
+ * `GET /audio_clips/popular`
   returns the most popular audio clips ordered by recent listens
 
 ### Tagged audio clips ###
-This call will return a [paginated] response.
+This call will return a [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) response.
 
- * GET /tag/*tag*/audio_clips
+ * `GET /tag/*tag*/audio_clips`
   returns all the audio clips tagged with the specified tag.
   
 ###User's audio clips###
-These calls will return [paginated] responses.
+These calls will return [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) responses.
 
- * GET /users/*user_id*/audio_clips
+ * `GET /users/*user_id*/audio_clips`
   returns the audio clips uploaded by the user specified by *user_id*.
 
- * GET /audio_clips?username=*username*
+ * `GET /audio_clips?username=*username*`
   returns the audio clips uploaded by *username*.  If known, using the user's id is preferred, since it's guaranteed to never change.
 
- * GET /account/audio_clips 
+ * `GET /account/audio_clips`
   returns the audio_clips uploaded by the user linked to the OAuth access token used.
 
 ### User's followed clips ###
-These calls will return [paginated] responses.
+These calls will return [paginated](https://github.com/audioboo/api/blob/master/sections/pagination.md) responses.
 
- * GET /users/*user_id*/audio_clips/followed
+ * `GET /users/*user_id*/audio_clips/followed`
   returns the audio clips uploaded by users followed by the user specified by *user_id*.
 
- * GET /account/audio_clips/followed
+ * `GET /account/audio_clips/followed`
   returns the audio clips uploaded by users followed by the user linked to the OAuth access token used.
 
 ### Clips by location ###
@@ -47,26 +47,26 @@ These calls will return [paginated] responses.
 There is a feed of boos restricted only to those with a public location, which may be useful for generating maps of boos, etc.
 This can be accessed using a call to the URL:
 
- * GET /audio_clips/located
+ * `GET /audio_clips/located`
 
 #### Search by distance from point ####
 If you want to get a list of boos increasing near a specific long/lat point you can call this:
 
- * GET /audio_clips/located?find[latitude]=*latitude*&find[longitude]=*longitude*
+ * `GET /audio_clips/located?find[latitude]=*latitude*&find[longitude]=*longitude*`
 
 The results will be ordered by a function of recentness and closeness to the given point.
 
 #### Search for boos "nearby" ####
 You can search for clips nearby another clip:
 
- * GET /audio_clips/*clip_id*/nearby
+ * `GET /audio_clips/*clip_id*/nearby`
 
 Which will return clips in the same order as clips returned from a long/lat point. For this and the clips from point call you'll also get a "bearing" and "distance" tag in the returned XML for each result which will tell you the bearing and distance of each result from the query location, using the haversine approximation. Don't know if that is useful, but it's there!
 
 #### Clips within a bounding box ####
 You can request all the clips that fall within an arbitrary bounding box.
 
- * GET /audio_clips/located?BBOX=*west*,*south*,*east*,*north*
+ * `GET /audio_clips/located?BBOX=*west*,*south*,*east*,*north*`
 
 Pagination rules apply, so it's possible to retrieve *all* clips inside the box...
 
@@ -76,13 +76,13 @@ Just "for fun" there is a KML generator which you can plug in to google earth. A
 
 Add a "network link" in google earth to this url
 
- * http://api.audioboo.fm/audio_clips/located.kml
+ * `http://api.audioboo.fm/audio_clips/located.kml`
 
 And you'll get the push-pins / audioboo icons on the map. You can even specify the view based refresh and google earth will automatically load clips from the viewport as you move around the map.
 
 If you use:
 
- * http://api.audioboo.fm/audio_clips/located.kml?tour=true
+ * `http://api.audioboo.fm/audio_clips/located.kml?tour=true`
 
 Then it will produce a KML with a tour of the most recent clips.
 
