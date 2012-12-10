@@ -36,3 +36,8 @@ The following parameters are unique to posting a message:
  * `message[parent_id]` (optional)
  If a reply, the ID of the message it is in reply to.
 
+### Delete a message ###
+
+ * DELETE /account/messages/*message_id*
+
+This will delete the message specified by *message_id*.
