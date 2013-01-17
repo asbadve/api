@@ -41,6 +41,12 @@ These calls will return [paginated](https://github.com/audioboo/api/blob/master/
  * `GET /account/audio_clips/followed`
   returns the audio clips uploaded by users followed by the user linked to the OAuth access token used.
 
+### Channel's clips ###
+
+`GET /channels/*channel_id*/audio_clips` returns boos for that particular channel.
+
+
+
 ### Clips by location ###
 
 #### Filtering for clips with location ####
