@@ -10,7 +10,7 @@ Any `/account/...` urls will act on the user corresponding to the OAuth access t
 
 ----
 
-The different API endpoints are broken up by section : 
+The different API endpoints are broken up by section :
 
 ### [Boos / AudioClips](https://github.com/audioboo/api/blob/master/sections/audio_clips.md)
 ### [Followers](https://github.com/audioboo/api/blob/master/sections/followers.md)
@@ -18,6 +18,7 @@ The different API endpoints are broken up by section :
 ### [Users](https://github.com/audioboo/api/blob/master/sections/users.md)
 ### [Playlists](https://github.com/audioboo/api/blob/master/sections/playlists.md)
 ### [Favourites](https://github.com/audioboo/api/blob/master/sections/favourites.md)
+### [Channels](https://github.com/audioboo/api/blob/master/sections/channels.md)
 ### [Uploading Chunked (Partial) Files](https://github.com/audioboo/api/blob/master/sections/chunked_attachments.md)
 
 ----
