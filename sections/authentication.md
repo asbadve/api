@@ -13,12 +13,12 @@ OAuth has no mechanism to allow authenticated but anonymous calls to be made, so
 
 If you're interested in using the private authentication scheme to mirror the behaviour of the iPhone application, contact info@audioboo.fm.
 
+
 ## OAuth Scheme ##
 The public API supports the OAuth standard to make authenticated calls on behalf of a user. To find out more about the OAuth specification and to find a library that implements it in your language, see http://oauth.net/.
 
-<font color=red>
-*NOTE:* As it stands, the server will respond to both OAuth 1.0 Rev. A and OAuth1.0 requests (i.e. with and without the PIN based desktop workflow d the oauth_verifier response). I'm not entirely sure of the state of the transition to 1.0rev A - so staying backwards compatible for the time being.
-</font>
+You should use OAuth 1.0A to make your requests.  You might like to examine our [example Ruby code](https://github.com/Audioboo/audioboo-ruby-oauth) to see how things are supposed to work.
+
 
 ## Consumer Keys ##
 For either scheme, you'll need to get hold of a consumer-token key and secret. These are long seemingly random strings that ensure we can identify your application when it makes calls.
@@ -39,3 +39,4 @@ For completeness, the three specific OAuth URLs are;
 
 ## Signing multipart uploads ##
 Multipart requests should be signed according to the [OAuth Request Body Hash extension](http://oauth.googlecode.com/svn/spec/ext/body_hash/1.0/oauth-bodyhash.html).
+
