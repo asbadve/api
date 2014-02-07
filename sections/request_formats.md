@@ -7,12 +7,12 @@ Being a REST-style API, all calls are made to paths based on the resource you're
 
 For example, if you're trying to access a list of clips a user is following, you'll make HTTP `GET` request to:
 
-`http://api.audioboo.fm/users/12/audio_clips/followed`
+`https://api.audioboo.fm/users/12/audio_clips/followed`
 
 where 12 is the id of the user you're interested in.  See [Response Encoding](https://github.com/audioboo/api/blob/master/sections/request_formats.md#response-encoding) below to find out what encodings we can use in responses.
 
 If you were trying to upload a clip to the linked user, you'd make a HTTP `POST` to:
-`http://api.audioboo.fm/account/audio_clips`
+`https://api.audioboo.fm/account/audio_clips`
 
 ## Standard Parameters ##
 To enable us to track what version of the API specification you have used to write your application, you should always include a `version` parameter along with the parameters of the API you are calling.
@@ -34,12 +34,12 @@ We have internally simplified returned data into series of hashes, arrays and ba
 
 Thus, both the following commands are equivalent:
 ```
-  curl http://api.audioboo.fm/audio_clips.xml
-  curl -H"Accept: application/xml" http://api.audioboo.fm/audio_clips
+  curl https://api.audioboo.fm/audio_clips.xml
+  curl -H"Accept: application/xml" https://api.audioboo.fm/audio_clips
 ```
 
 ###Examples:
-`curl http://api.audioboo.fm/audio_clips.json`
+`curl https://api.audioboo.fm/audio_clips.json`
 
 ```json
 {
@@ -78,7 +78,7 @@ Thus, both the following commands are equivalent:
 			...
 ```
 
-`curl http://api.audioboo.fm/audio_clips.xml`
+`curl https://api.audioboo.fm/audio_clips.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
