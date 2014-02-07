@@ -16,16 +16,16 @@ To make authenticated requests you'll need to get hold of a consumer-token key a
 To register for key and token, head over to https://audioboo.fm/account/services and click "Request new API Key". This will ask for some information regarding the application you're writing and, once submitted, should provide you with the token key and secret.
 
 ## OAuth Request URLs ##
-When configuring your OAuth library, you will require URLs to access the OAuth calls. As we use standard paths, most libraries should just request the site's base address, which is `http://api.audioboo.fm/`
+When configuring your OAuth library, you will require URLs to access the OAuth calls. As we use standard paths, most libraries should just request the site's base address, which is `https://api.audioboo.fm/`
 
 
 For completeness, the three specific OAuth URLs are;
 
-* Request Token URL: `http://api.audioboo.fm/oauth/request_token`
+* Request Token URL: `https://api.audioboo.fm/oauth/request_token`
 
-* Authorization URL: `http://api.audioboo.fm/oauth/authorize`
+* Authorization URL: `https://api.audioboo.fm/oauth/authorize`
 
-* Access Token URL: `http://api.audioboo.fm/oauth/access_token`
+* Access Token URL: `https://api.audioboo.fm/oauth/access_token`
 
 ## Signing multipart uploads ##
 Multipart requests should be signed according to the [OAuth Request Body Hash extension](http://oauth.googlecode.com/svn/spec/ext/body_hash/1.0/oauth-bodyhash.html).
